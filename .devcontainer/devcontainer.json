@@ -7,7 +7,7 @@
     "customizations": {
         "vscode": {
           "extensions": ["dbaeumer.vscode-eslint", "ms-vscode-remote.remote-containers",
-          "esbenp.prettier-vscode", "ms-azuretools.vscode-docker"]
+          "editorconfig.editorconfig", "ms-azuretools.vscode-docker"]
         }
       }
 }
