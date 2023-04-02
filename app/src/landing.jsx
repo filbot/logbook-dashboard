@@ -4,48 +4,14 @@ export default function Landing() {
   let year = d.getFullYear();
 
   return (
-    <>
-      <section className="hero">
-        <h1>Logbook Dashboard</h1>
-        <p>Track your rows and improve your performance with our data dashboard.</p>
-        <a href="#" className="cta">Learn More</a>
-      </section>
-
-      <section className="features">
-        <div className="feature">
-          <h2>Track Your Progress</h2>
-          <p>Our dashboard allows you to track your progress over time, so you can see your improvement with each row.</p>
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="text-center mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-white mb-4">Raw Denim Heirloom Man Braid</h1>
+          <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
         </div>
-        <div className="feature">
-          <h2>Set Goals</h2>
-          <p>Set rowing goals for yourself and track your progress towards achieving them.</p>
-        </div>
-        <div className="feature">
-          <h2>Compete With Others</h2>
-          <p>Join our community and compete with other rowers to see who can row the furthest or the fastest.</p>
-        </div>
-      </section>
-
-      <footer className="bg-black rounded-lg shadow m-4 dark:bg-gray-800">
-        <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {year} <a href="https://filbot.com/" className="hover:underline">Filbot™</a>. All Rights Reserved.
-          </span>
-          <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-            <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">About</a>
-            </li>
-            <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">Licensing</a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-    </>
+        <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+      </div>
+    </section>
   );
 }
