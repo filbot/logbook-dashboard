@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Routes,
   Route,
-  Link,
   useNavigate,
   useLocation,
   Navigate,
@@ -12,7 +11,6 @@ import { fakeAuthProvider } from "./auth";
 import Dashboard from "./dashboard";
 import Landing from "./landing";
 import Header from "./header";
-import imgUrl from './assets/rowing-robot.jpg';
 import './App.css'
 
 export default function App() {
@@ -38,13 +36,13 @@ export default function App() {
 
 function Layout() {
   return (
-    <div style={divStyle}>
+    <div className="flex flex-col h-screen bg-indigo-900">
       {/* <AuthStatus /> */}
       <Header />
       <Outlet />
-      <footer className="text-gray-400 backdrop-blur-lg body-font">
+      <footer className="text-gray-400 body-font">
         <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-          <p className="text-sm text-gray-400 sm:py-2 sm:mt-0 mt-4">© 2020 Filbot</p>
+          <p className="text-sm text-gray-400 sm:py-2 sm:mt-0 mt-4">© 2023 Filbot</p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a className="text-gray-400">
               <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
@@ -74,14 +72,6 @@ function Layout() {
     </div>
   );
 }
-
-const divStyle = {
-  backgroundImage: `url(${imgUrl})`,
-  backgroundSize: 'cover',
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100vh',
-};
 
 let AuthContext = React.createContext();
 
