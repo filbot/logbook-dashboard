@@ -1,0 +1,13 @@
+{
+    "name": "Logbook App",
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    "forwardPorts": [3000],
+    "customizations": {
+        "vscode": {
+          "extensions": ["dbaeumer.vscode-eslint", "ms-vscode-remote.remote-containers",
+          "esbenp.prettier-vscode", "ms-azuretools.vscode-docker"]
+        }
+      }
+}
