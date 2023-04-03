@@ -9,8 +9,6 @@ import {
   Outlet,
 } from "react-router-dom";
 import { fakeAuthProvider } from "./auth";
-import Dashboard from "./dashboard";
-import Footer from "./footer";
 import './App.css'
 
 export default function App() {
@@ -38,9 +36,9 @@ export default function App() {
 function Layout() {
   return (
     <div className="flex flex-col h-screen bg-indigo-950">
-      {/* <AuthStatus /> */}
       <Header />
       <Outlet />
+      <AuthStatus />
       <Footer />
     </div>
   );
@@ -112,7 +110,6 @@ function RequireAuth({ children }) {
 }
 
 
-
 function PublicPage() {
   return <Landing />;
 }
@@ -180,6 +177,9 @@ function Header() {
 }
 
 function Landing() {
+  let navigate = useNavigate();
+  let auth = useAuth();
+
   return (
     <section className="text-gray-400 body-font grow">
       <div className="container px-5 py-24 mx-auto">
