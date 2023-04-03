@@ -1,8 +1,11 @@
 export default function Footer() {
+  const d = new Date();
+  let year = d.getFullYear();
+
   return (
     <footer className="text-gray-400 body-font">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <p className="text-sm text-gray-400 sm:py-2 sm:mt-0 mt-4">© 2023 Filbot</p>
+        <p className="text-sm text-gray-400 sm:py-2 sm:mt-0 mt-4">© {year} Filbot</p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a className="text-gray-400">
             <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
