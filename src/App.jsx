@@ -10,9 +10,7 @@ import {
 } from "react-router-dom";
 import { fakeAuthProvider } from "./auth";
 import Dashboard from "./dashboard";
-import Landing from "./landing";
 import Footer from "./footer";
-import AboutPage from "./aboutPage";
 import './App.css'
 
 export default function App() {
@@ -164,8 +162,6 @@ function LoginPage() {
 }
 
 function Header() {
-  let navigate = useNavigate();
-  let auth = useAuth();
   return (
     <header className="text-gray-400 backdrop-blur-lg body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -180,5 +176,103 @@ function Header() {
         </nav>
       </div>
     </header>
+  );
+}
+
+function Landing() {
+  return (
+    <section className="text-gray-400 body-font grow">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="text-center mb-20">
+          <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-white mb-4">Visiualize Your Logbook Metrics</h1>
+          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Maximize your rowing performance with Logbook-Dashboard's easy-to-use platform, analyze your data, and track your progress to crush your personal records.</p>
+        </div>
+      </div>
+      <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded text-base mt-4 md:mt-0" onClick={() => {
+          auth.signin(() => navigate("/dashboard"));
+        }}>Authenticate
+          <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+    </section>
+  );
+}
+
+function AboutPage() {
+  return (
+    <section className="text-gray-400 body-font grow">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="text-center mb-20">
+          <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-white mb-4">Why use Logbook Dashboard?</h1>
+          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-left">At Filbot, we are passionate about building powerful tools for athletes to track their progress and reach their goals. We believe that every athlete, regardless of their level or location, deserves access to their data anytime, anywhere. That's why we are dedicated to developing a state-of-the-art dashboard that can display logbook data from rowing machines on any device, in any web browser. Our app uses secure authentication to read data from logbook servers, ensuring that all of your data remains safe and secure. At Filbot, we take your privacy seriously, which is why we never store any personal or workout data. Our mission is to empower athletes with the insights they need to perform at their best, and we are committed to making that a reality for everyone.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  const d = new Date();
+  let year = d.getFullYear();
+
+  return (
+    <footer className="text-gray-400 body-font">
+      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <p className="text-sm text-gray-400 sm:py-2 sm:mt-0 mt-4">© {year} Filbot</p>
+        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a className="text-gray-400">
+            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a className="ml-3 text-gray-400">
+            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a>
+          <a className="ml-3 text-gray-400">
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a className="ml-3 text-gray-400">
+            <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" className="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+        </span>
+      </div>
+    </footer>
+  );
+}
+
+function ErrorPage() {
+  const error = useRouteError();
+  console.error(error);
+
+  return (
+    <div id="error-page">
+      <h1>Oops!</h1>
+      <p>Sorry, an unexpected error has occurred.</p>
+      <p>
+        <i>{error.statusText || error.message}</i>
+      </p>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return (
+    <section className="text-gray-400 body-font grow">
+    <div className="container px-5 py-24 mx-auto">
+      <div className="text-center mb-20">
+        <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-white mb-4">Workouts go here</h1>
+        <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-left">charts and graphs and numbers and such</p>
+      </div>
+    </div>
+  </section>
   );
 }
