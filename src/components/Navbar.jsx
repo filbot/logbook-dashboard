@@ -1,7 +1,9 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { checkout } from "../features/navbar/navbarSlice";
 
 const Navbar = () => {
-  const { value } = useSelector((state) => state.dashboard);
+  const dispatch = useDispatch();
+  const { total } = useSelector((state) => state.navbar);
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
@@ -18,10 +20,13 @@ const Navbar = () => {
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <span className="ml-3 text-xl">Catblocks</span>
+          <span className="ml-3 text-xl">CryptoBlocks</span>
         </a>
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-          Cats: {value}
+        <button
+          className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+          onClick={() => dispatch(checkout())}
+        >
+          Wallet: {total}
         </button>
       </div>
     </header>

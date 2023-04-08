@@ -1,23 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import data from "../../data";
 
 const initialState = {
-  value: 0,
-  status: "idle",
+  data: data,
+  timestamp: 1533581088278,
+  isLoading: false,
 };
 
-export const dashboardSlice = createSlice({
+const dashboardSlice = createSlice({
   name: "dashboard",
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    clearTable: (state) => {
+      state.data = [];
     }
   },
 });
+
+export const { clearTable } = dashboardSlice.actions;
 
 export default dashboardSlice.reducer;
